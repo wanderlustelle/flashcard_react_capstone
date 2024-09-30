@@ -68,38 +68,12 @@ function AddCard() {
         </ol>
       </nav>
       <h2>{deck.name}: Add Card</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="front">Front</label>
-          <textarea
-            className="form-control"
-            id="front"
-            name="front"
-            value={newCard.front}
-            onChange={handleChange}
-            placeholder="Front side of card"
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="back">Back</label>
-          <textarea
-            className="form-control"
-            id="back"
-            name="back"
-            value={newCard.back}
-            onChange={handleChange}
-            placeholder="Back side of card"
-            required
-          />
-        </div>
-        <button type="button" className="btn btn-secondary mr-2" onClick={() => navigate(`/decks/${deckId}`)}>
-          Done
-        </button>
-        <button type="submit" className="btn btn-primary">
-          Save
-        </button>
-      </form>
+      <CardForm
+        card={newCard}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        handleDone={handleDone}
+      />
     </div>
   );
 }
